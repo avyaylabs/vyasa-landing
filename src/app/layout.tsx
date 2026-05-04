@@ -1,27 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 const siteUrl = "https://vyasa.avyaylabs.com";
+const description =
+  "A wearable clip: one press saves the rolling minute, or hold to prepend that minute and keep recording until you stop. Search in the Vyasa app.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Vyasa · Your conversations searchable",
-  description:
-    "A wearable clip with about a minute of context on the device. Press once or hold for longer, then search in the Vyasa app.",
+  description,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: "Vyasa",
     title: "Vyasa · Your conversations searchable",
-    description:
-      "A wearable clip with about a minute of context on the device. Press once or hold for longer, then search in the Vyasa app.",
+    description,
   },
   twitter: {
     card: "summary_large_image",
     title: "Vyasa · Your conversations searchable",
-    description:
-      "A wearable clip with about a minute of context on the device. Press once or hold for longer, then search in the Vyasa app.",
+    description,
   },
 };
 

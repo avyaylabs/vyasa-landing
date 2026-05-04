@@ -4,3 +4,32 @@ body {
   background-color: #0a0908;
   color: #f5f2ec;
 }
+
+/*
+ * Fluid spacing scale — prefer these over raw px in layout so rhythm scales
+ * with viewport and root font size. (Hairline borders may still use 1px.)
+ */
+:root {
+  --vy-container-inline: clamp(1rem, 4vw, 3rem);
+  --vy-section-y: clamp(3.5rem, 8vw, 7.5rem);
+  --vy-waitlist-pt: clamp(5rem, 12vw, 10rem);
+  --vy-footer-y-top: clamp(3rem, 8vw, 3.75rem);
+  --vy-footer-y-bottom: clamp(2.5rem, 6vw, 3rem);
+  --vy-hero-nav-clearance: clamp(5.25rem, 12vw, 5.75rem);
+  --vy-hero-nav-clearance-mobile: clamp(6.75rem, 18vw, 8rem);
+  --vy-content-max: 75rem;
+  --vy-content-narrow: 50rem;
+  --vy-grid-gap: clamp(1.5rem, 4vw, 4rem);
+  --vy-space-1: 0.25rem;
+  --vy-space-2: 0.5rem;
+  --vy-space-3: 0.75rem;
+  --vy-space-4: 1rem;
+  --vy-space-5: 1.25rem;
+  --vy-space-6: 1.5rem;
+  --vy-space-7: 1.75rem;
+  --vy-space-8: 2rem;
+  --vy-space-10: 2.5rem;
+  --vy-space-12: 3rem;
+  --vy-space-16: 4rem;
+  --vy-space-20: 5rem;
+}
