@@ -110,6 +110,7 @@ export default function VyasaLanding() {
         .delay-2 { animation-delay: 0.25s; }
         .delay-3 { animation-delay: 0.4s; }
         .delay-4 { animation-delay: 0.6s; }
+        .delay-5 { animation-delay: 0.75s; }
 
         .vyasa-nav {
           transition: padding 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-bottom-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -256,7 +257,7 @@ export default function VyasaLanding() {
           <h1 className="serif fade-up delay-1 hero-title" style={{
             fontSize: 'clamp(56px, 8vw, 120px)',
             fontWeight: 400, lineHeight: 0.95, letterSpacing: '-0.035em',
-            marginBottom: 32, maxWidth: 1100,
+            marginBottom: 16, maxWidth: 1100,
           }}>
             Vyasa.<br />
             Your conversations<br />
@@ -264,13 +265,19 @@ export default function VyasaLanding() {
           </h1>
 
           <p className="sans fade-up delay-2" style={{
+            fontSize: 17, lineHeight: 1.45, color: FG, maxWidth: 560, marginBottom: 16, fontWeight: 400,
+          }}>
+            A wearable clip that remembers the last minute for you on the device.
+          </p>
+
+          <p className="sans fade-up delay-3" style={{
             fontSize: 19, lineHeight: 1.55, color: MUTED,
             maxWidth: 560, marginBottom: 56, fontWeight: 300,
           }}>
-            The clip always holds a temporary memory of the last minute on the device. When something lands, press once to save just that stretch, or hold if you already want a longer take. Then search it in the Vyasa app, or connect it to tools that support MCP.
+            The clip keeps that stretch in temporary memory until you act: press once to save it, or hold if you already want a longer take. Then search it in the Vyasa app.
           </p>
 
-          <div className="fade-up delay-3" style={{ maxWidth: 480 }}>
+          <div className="fade-up delay-4" style={{ maxWidth: 480 }}>
             {!submitted ? (
               <div>
                 <p className="sans" style={{ fontSize: 15, color: FG, lineHeight: 1.5, marginBottom: 16, fontWeight: 400 }}>
@@ -309,7 +316,7 @@ export default function VyasaLanding() {
 
         </div>
 
-        <div className="fade-up delay-4" style={{
+        <div className="fade-up delay-5" style={{
           position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)',
           width: '40%', height: '60%', opacity: 0.5, pointerEvents: 'none',
           display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 48,
@@ -547,7 +554,7 @@ export default function VyasaLanding() {
             when yours is ready.
           </p>
           <p className="sans" style={{ fontSize: 15, color: FG, lineHeight: 1.5, marginBottom: 40, maxWidth: 540, fontWeight: 400 }}>
-            Join the waitlist to try it in the first run.
+            Missed the form up top? Same waitlist—add your email here.
           </p>
 
           {!submitted ? (
