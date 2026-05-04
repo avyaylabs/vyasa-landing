@@ -267,12 +267,15 @@ export default function VyasaLanding() {
             fontSize: 19, lineHeight: 1.55, color: MUTED,
             maxWidth: 560, marginBottom: 56, fontWeight: 300,
           }}>
-            The clip always holds about the last minute on the device. It is not building a diary of your whole week in the cloud. When something lands, press once to save just that stretch, or hold if you already want a longer take. Then search it in the Vyasa app, or connect it to tools that support MCP.
+            The clip always holds a temporary memory of the last minute on the device. When something lands, press once to save just that stretch, or hold if you already want a longer take. Then search it in the Vyasa app, or connect it to tools that support MCP.
           </p>
 
           <div className="fade-up delay-3" style={{ maxWidth: 480 }}>
             {!submitted ? (
               <div>
+                <p className="sans" style={{ fontSize: 15, color: FG, lineHeight: 1.5, marginBottom: 16, fontWeight: 400 }}>
+                  Join the waitlist to try it in the first run.
+                </p>
                 <div style={{ display: 'flex', gap: 16, alignItems: 'flex-end' }}>
                   <div style={{ flex: 1 }}>
                     <input type="email" placeholder="your@email.com" value={email}
@@ -539,9 +542,12 @@ export default function VyasaLanding() {
           }}>
             Limited first run.
           </h2>
-          <p className="sans" style={{ fontSize: 18, color: MUTED, marginBottom: 56, maxWidth: 540, lineHeight: 1.6, fontWeight: 300 }}>
+          <p className="sans" style={{ fontSize: 18, color: MUTED, marginBottom: 24, maxWidth: 540, lineHeight: 1.6, fontWeight: 300 }}>
             Hand-assembled. We ship to this list first. Drop your email and we'll let you know
             when yours is ready.
+          </p>
+          <p className="sans" style={{ fontSize: 15, color: FG, lineHeight: 1.5, marginBottom: 40, maxWidth: 540, fontWeight: 400 }}>
+            Join the waitlist to try it in the first run.
           </p>
 
           {!submitted ? (
