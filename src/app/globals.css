@@ -1,0 +1,6 @@
+/* Base canvas so the page never flashes light theme before the landing shell paints. */
+html,
+body {
+  background-color: #0a0908;
+  color: #f5f2ec;
+}
