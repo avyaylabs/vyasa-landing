@@ -7,6 +7,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export default function VyasaLanding() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [waitlistDuplicate, setWaitlistDuplicate] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeMode, setActiveMode] = useState<"single" | "long">("single");
   const [loading, setLoading] = useState(false);
@@ -37,11 +38,15 @@ export default function VyasaLanding() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: trimmed }),
       });
-      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      const data = (await res.json().catch(() => ({}))) as {
+        error?: string;
+        duplicate?: boolean;
+      };
       if (!res.ok) {
         setError(typeof data.error === "string" ? data.error : "Something went wrong. Try again.");
         return;
       }
+      setWaitlistDuplicate(Boolean(data.duplicate));
       setSubmitted(true);
     } catch {
       setError("Network error. Try again.");
@@ -262,7 +267,7 @@ export default function VyasaLanding() {
             fontSize: 19, lineHeight: 1.55, color: MUTED,
             maxWidth: 560, marginBottom: 56, fontWeight: 300,
           }}>
-            The clip keeps a rolling sixty-second buffer in memory—always listening into short-lived RAM, not into a lifelog. When something mattered, press once: only that slice is written to storage. Hold when you meant to record longer. Then search what you saved—or pipe it to Claude over MCP.
+            The clip always holds about the last minute on the device. It is not building a diary of your whole week in the cloud. When something lands, press once to save just that stretch, or hold if you already want a longer take. Then search it in the Vyasa app, or connect it to tools that support MCP.
           </p>
 
           <div className="fade-up delay-3" style={{ maxWidth: 480 }}>
@@ -287,9 +292,13 @@ export default function VyasaLanding() {
               </div>
             ) : (
               <div className="waitlist-reveal" style={{ borderLeft: `2px solid ${SAFFRON}`, paddingLeft: 20, animation: 'fadeUp 0.5s ease-out forwards' }}>
-                <p className="serif" style={{ fontSize: 22, marginBottom: 6 }}>You're in.</p>
+                <p className="serif" style={{ fontSize: 22, marginBottom: 6 }}>
+                  {waitlistDuplicate ? "You're already on the waitlist." : "You're in."}
+                </p>
                 <p className="sans" style={{ fontSize: 14, color: MUTED, lineHeight: 1.6 }}>
-                  We’ll email you when yours is ready.
+                  {waitlistDuplicate
+                    ? "No need to sign up again. We'll email you when there's something worth knowing."
+                    : "We'll email you when yours is ready."}
                 </p>
               </div>
             )}
@@ -322,12 +331,6 @@ export default function VyasaLanding() {
         <div className="container" style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
           <div className="section-label" style={{ marginBottom: 40 }}>Why</div>
           <p className="serif" style={{
-            fontSize: 'clamp(24px, 3vw, 36px)', lineHeight: 1.35, fontWeight: 400,
-            letterSpacing: '-0.02em', maxWidth: 900, color: FG, marginBottom: 28,
-          }}>
-            The clip always holds the last sixty seconds in memory. You only write it to storage when you press—after the moment already happened.
-          </p>
-          <p className="serif" style={{
             fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.3, fontWeight: 400,
             letterSpacing: '-0.02em', maxWidth: 900, color: FG,
           }}>
@@ -337,8 +340,8 @@ export default function VyasaLanding() {
             fontSize: 'clamp(22px, 2.6vw, 30px)', lineHeight: 1.5, fontWeight: 300,
             letterSpacing: '-0.015em', maxWidth: 900, color: MUTED, marginTop: 32,
           }}>
-            The thing your doctor said about your mom's medicine. The number the vendor quoted before
-            you started taking notes. The actual reason your customer said no.
+            The hallway debrief after you left the Zoom room. The detail someone said once, fast,
+            while you were looking at the wrong screen. The line in the contract you only half heard.
             You meant to remember. You didn't.
           </p>
         </div>
@@ -355,10 +358,10 @@ export default function VyasaLanding() {
             Two modes. One button.
           </h2>
           <p className="sans" style={{ fontSize: 17, color: MUTED, maxWidth: 720, marginBottom: 20, lineHeight: 1.65, fontWeight: 300 }}>
-            The proposition is the sixty-second buffer: audio sits in a rolling window on the device until you commit it. Press once to freeze the last minute into storage; hold when you already know you want a longer take. Nothing is written until you mean it.
+            The two mode cards below are the whole interaction model: one tap versus one hold, on the same button.
           </p>
           <p className="sans" style={{ fontSize: 17, color: MUTED, maxWidth: 720, marginBottom: 20, lineHeight: 1.65, fontWeight: 300 }}>
-            The waitlist on this page is for the clip. We're also building toward phone recall and MCP in the roadmap—search from the Vyasa app, query the same memory from Claude or ChatGPT—so the hardware isn't carrying the whole story alone.
+            This waitlist is for the clip. Broader phone recall and MCP are on the roadmap so memory is not locked to the hardware alone.
           </p>
           <p className="sans" style={{ fontSize: 17, color: MUTED, maxWidth: 600, marginBottom: 64, lineHeight: 1.6 }}>
             Wear it as a clip, a pin, or on a lanyard.
@@ -431,12 +434,12 @@ export default function VyasaLanding() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }} className="modes-grid">
             <div>
               <p className="sans" style={{ fontSize: 17, color: FG, lineHeight: 1.7, marginBottom: 24, fontWeight: 300 }}>
-                After you commit a slice from the sixty-second window—or finish a long hold—it becomes text you can actually search. Use the Vyasa app on your phone, or connect{' '}
+                After you commit a slice from the sixty-second window, or finish a long hold, it becomes text you can actually search. Use the Vyasa app on your phone, or connect{' '}
                 <span className="mono" style={{ fontSize: 14, color: SAFFRON }}>MCP</span>
                 {' '}so Claude, ChatGPT, or anything that speaks the protocol can pull from the same memory.
               </p>
               <p className="sans" style={{ fontSize: 17, color: MUTED, lineHeight: 1.7, fontWeight: 300 }}>
-                By default it stays on your phone. Export, delete, or move it when you want—we don't see it unless you ask us to.
+                Export, delete, or move it from the app when you want. We don't see it unless you ask us to.
               </p>
             </div>
 
@@ -472,7 +475,7 @@ export default function VyasaLanding() {
 
           <div style={{ maxWidth: 720 }}>
             <p className="sans" style={{ fontSize: 18, color: FG, lineHeight: 1.75, marginBottom: 24, fontWeight: 300 }}>
-              By default audio stays on your phone. Cloud sync is opt-in; when you turn it on, it's end-to-end encrypted. We don't train on your conversations—that's spelled out in the terms, with subprocessors listed there too.
+              By default audio stays on your phone. Cloud sync is opt-in; when you turn it on, it's end-to-end encrypted. We don't train on your conversations. That's spelled out in the terms, with subprocessors listed there too.
             </p>
             <p className="sans" style={{ fontSize: 18, color: FG, lineHeight: 1.75, marginBottom: 24, fontWeight: 300 }}>
               The device doesn't brick. Your memories don't disappear. We are not in the business of holding your stuff hostage.
@@ -521,7 +524,7 @@ export default function VyasaLanding() {
               get on the list.
             </p>
             <p className="serif" style={{ fontSize: 17, color: MUTED, fontStyle: 'italic' }}>
-              — Dev. R.
+              Dev. R.
             </p>
           </div>
         </div>
@@ -559,9 +562,13 @@ export default function VyasaLanding() {
             </div>
           ) : (
             <div className="waitlist-reveal" style={{ borderLeft: `2px solid ${SAFFRON}`, paddingLeft: 20, maxWidth: 480, animation: 'fadeUp 0.5s ease-out forwards' }}>
-              <p className="serif" style={{ fontSize: 22, marginBottom: 6 }}>You're in.</p>
+              <p className="serif" style={{ fontSize: 22, marginBottom: 6 }}>
+                {waitlistDuplicate ? "You're already on the waitlist." : "You're in."}
+              </p>
               <p className="sans" style={{ fontSize: 14, color: MUTED, lineHeight: 1.6 }}>
-                We’ll email you when yours is ready.
+                {waitlistDuplicate
+                  ? "No need to sign up again. We'll email you when there's something worth knowing."
+                  : "We'll email you when yours is ready."}
               </p>
             </div>
           )}

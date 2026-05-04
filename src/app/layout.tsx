@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Vyasa — Your conversations searchable",
+  title: "Vyasa · Your conversations searchable",
   description:
-    "Sixty seconds of audio in a rolling buffer on the clip—press once to save that slice, hold for a longer take, then search what you kept or use MCP with Claude.",
+    "About the last minute on the device until you save it. Press once or hold for longer, then search in the app or connect tools that support MCP.",
 };
 
 export default function RootLayout({
