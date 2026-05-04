@@ -333,7 +333,7 @@ export default function VyasaLanding() {
             fontSize: '1.1875rem', lineHeight: 1.55, color: MUTED,
             maxWidth: 'min(100%, 35rem)', marginBottom: 'var(--vy-space-12)', fontWeight: 300,
           }}>
-            The clip keeps that stretch in temporary memory until you act: press once to save it, or hold for a longer take. The rolling minute is prepended to the file, then recording continues until you stop. Then search it in the Vyasa app.
+            The clip keeps that stretch in temporary memory until you act: press once to save the last ~60 seconds, or hold to start a longer take—the rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold. The take stays on the clip until it syncs to your phone; then you open the Vyasa app to search and play it back.
           </p>
 
           <div className="fade-up delay-4" style={{ maxWidth: 'min(100%, 30rem)' }}>
@@ -430,7 +430,7 @@ export default function VyasaLanding() {
             The two mode cards below are the whole interaction model: one tap versus one hold, on the same button.
           </p>
           <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-5)', lineHeight: 1.65, fontWeight: 300 }}>
-            This waitlist is for the clip. Broader phone recall and MCP are on the roadmap so memory is not locked to the hardware alone.
+            This waitlist is for the clip. On the roadmap: capture and recall without the clip, plus MCP, so your memory is not tied only to wearing the hardware.
           </p>
           <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 37.5rem)', marginBottom: 'var(--vy-space-16)', lineHeight: 1.6 }}>
             Wear it as a clip, a pin, or on a lanyard.
@@ -586,12 +586,12 @@ export default function VyasaLanding() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--vy-grid-gap)', alignItems: 'center' }} className="modes-grid">
             <div>
               <p className="sans" style={{ fontSize: '1.0625rem', color: FG, lineHeight: 1.7, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-                After you commit a slice from the sixty-second window, or finish a long hold (the rolling minute is prepended to that recording), it becomes text you can actually search. Use the Vyasa app on your phone, or connect{' '}
+                After you commit a slice from the sixty-second window, or finish a long hold (the rolling minute is prepended to that recording), the file is still on the clip until it syncs to your phone. In the Vyasa app it becomes text you can search. You can also connect{' '}
                 <span className="mono" style={{ fontSize: '0.875rem', color: SAFFRON }}>MCP</span>
-                {' '}so Claude, ChatGPT, or anything that speaks the protocol can pull from the same memory.
+                {' '}so Claude, ChatGPT, or other clients that speak the protocol can read the same library the app sees—subject to what you enable in settings.
               </p>
               <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, lineHeight: 1.7, fontWeight: 300 }}>
-                Export, delete, or move it from the app when you want. We don't see it unless you ask us to.
+                Export, delete, or move it from the app when you want. We do not use your captures to train models.
               </p>
             </div>
 
@@ -627,10 +627,10 @@ export default function VyasaLanding() {
 
           <div style={{ maxWidth: 'min(100%, 45rem)' }}>
             <p className="sans" style={{ fontSize: '1.125rem', color: FG, lineHeight: 1.75, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-              By default audio stays on your phone. Cloud sync is opt-in; when you turn it on, it's end-to-end encrypted. We don't train on your conversations. That's spelled out in the terms, with subprocessors listed there too.
+              The clip is where recording lands first: your buffer and each saved take stay on the device until they sync with your phone. After that, they live in the Vyasa app on your phone—that is where you search, play, export, or delete by default. Optional cloud backup is opt-in; when you turn it on, it is end-to-end encrypted. We do not train on your conversations.
             </p>
             <p className="sans" style={{ fontSize: '1.125rem', color: FG, lineHeight: 1.75, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-              The device doesn't brick. Your memories don't disappear. We are not in the business of holding your stuff hostage.
+              We are not in the business of bricking hardware or holding your captures hostage. Your memories should not disappear because a vendor changed their mind.
             </p>
           </div>
         </div>
