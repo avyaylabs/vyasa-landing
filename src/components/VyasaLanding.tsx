@@ -427,13 +427,12 @@ export default function VyasaLanding() {
             Two modes. One button.
           </h2>
           <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-5)', lineHeight: 1.65, fontWeight: 300 }}>
-            The two mode cards below are the whole interaction model: one tap versus one hold, on the same button.
+            The two cards below are the whole model on one button: press once to save the last ~60 seconds from the rolling buffer; hold to prepend that same window to a new take, then keep recording until you stop with a second hold.
           </p>
-          <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-5)', lineHeight: 1.65, fontWeight: 300 }}>
-            This waitlist is for the clip. On the roadmap: capture and recall without the clip, plus MCP, so your memory is not tied only to wearing the hardware.
-          </p>
-          <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 37.5rem)', marginBottom: 'var(--vy-space-16)', lineHeight: 1.6 }}>
-            Wear it as a clip, a pin, or on a lanyard.
+          <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-16)', lineHeight: 1.65, fontWeight: 300 }}>
+            After sync, searchable memory lives in the Vyasa app on your phone. Connect{' '}
+            <span className="mono" style={{ fontSize: '0.875rem', color: SAFFRON }}>MCP</span>
+            {' '}and assistants such as Claude or ChatGPT can query that same library—only what you enable in settings.
           </p>
 
           <div className="modes-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--vy-space-6)', marginBottom: 'var(--vy-space-12)' }}>
@@ -586,9 +585,7 @@ export default function VyasaLanding() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--vy-grid-gap)', alignItems: 'center' }} className="modes-grid">
             <div>
               <p className="sans" style={{ fontSize: '1.0625rem', color: FG, lineHeight: 1.7, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-                After you commit a slice from the sixty-second window, or finish a long hold (the rolling minute is prepended to that recording), the file is still on the clip until it syncs to your phone. In the Vyasa app it becomes text you can search. You can also connect{' '}
-                <span className="mono" style={{ fontSize: '0.875rem', color: SAFFRON }}>MCP</span>
-                {' '}so Claude, ChatGPT, or other clients that speak the protocol can read the same library the app sees—subject to what you enable in settings.
+                After you commit a slice from the sixty-second window, or finish a long hold (the rolling minute is prepended to that recording), the file is still on the clip until it syncs to your phone. In the Vyasa app it becomes text you can search.
               </p>
               <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, lineHeight: 1.7, fontWeight: 300 }}>
                 Export, delete, or move it from the app when you want. We do not use your captures to train models.
