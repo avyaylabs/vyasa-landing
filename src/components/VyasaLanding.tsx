@@ -58,7 +58,7 @@ export default function VyasaLanding() {
   const SAFFRON = '#E8A04A';
   const BG = '#0A0908';
   const FG = '#F5F2EC';
-  /** Was #7A766F — too low-contrast on BG for long body copy and forms */
+  /** Was #7A766F: too low-contrast on BG for long body copy and forms */
   const MUTED = '#ADA8A1';
   const LINE = '#2E2A24';
 
@@ -130,7 +130,7 @@ export default function VyasaLanding() {
           50% { opacity: 0.45; }
         }
 
-        /* forwards only — avoid backwards fill hiding content if animations never run */
+        /* forwards only; avoid backwards fill hiding content if animations never run */
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.25s; }
@@ -304,7 +304,7 @@ export default function VyasaLanding() {
         </div>
       </nav>
 
-      {/* HERO — padding-top on .hero-section clears fixed nav; content is top-aligned */}
+      {/* HERO: padding-top on .hero-section clears fixed nav; content is top-aligned */}
       <section className="hero-section">
         <div className="container" style={{ paddingTop: 'var(--vy-space-10)', paddingBottom: 'var(--vy-space-20)', width: '100%', position: 'relative', zIndex: 2 }}>
 
@@ -333,7 +333,7 @@ export default function VyasaLanding() {
             fontSize: '1.1875rem', lineHeight: 1.55, color: MUTED,
             maxWidth: 'min(100%, 35rem)', marginBottom: 'var(--vy-space-12)', fontWeight: 300,
           }}>
-            The clip keeps that stretch in temporary memory until you act: press once to save the last ~60 seconds, or hold to start a longer take—the rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold. The take stays on the clip until it syncs to your phone; then you open the Vyasa app to search and play it back.
+            The clip keeps that stretch in temporary memory until you act: press once to save the last ~60 seconds, or hold to start a longer take. The rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold.
           </p>
 
           <div className="fade-up delay-4" style={{ maxWidth: 'min(100%, 30rem)' }}>
@@ -403,7 +403,7 @@ export default function VyasaLanding() {
             fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)', lineHeight: 1.3, fontWeight: 400,
             letterSpacing: '-0.02em', maxWidth: 'min(100%, 56.25rem)', color: FG,
           }}>
-            Zoom meetings get transcribed. Everything else doesn't.
+            Zoom meetings get transcribed. Off the call (in person, in motion, in the rest of your day), it usually doesn't.
           </p>
           <p className="serif" style={{
             fontSize: 'clamp(1.375rem, 2.6vw, 1.875rem)', lineHeight: 1.5, fontWeight: 300,
@@ -430,9 +430,9 @@ export default function VyasaLanding() {
             The two cards below are the whole model on one button: press once to save the last ~60 seconds from the rolling buffer; hold to prepend that same window to a new take, then keep recording until you stop with a second hold.
           </p>
           <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-16)', lineHeight: 1.65, fontWeight: 300 }}>
-            After sync, searchable memory lives in the Vyasa app on your phone. Connect{' '}
+            Each capture stays on the clip until it syncs to your phone, then lives as searchable text in the Vyasa app. Connect{' '}
             <span className="mono" style={{ fontSize: '0.875rem', color: SAFFRON }}>MCP</span>
-            {' '}and assistants such as Claude or ChatGPT can query that same library—only what you enable in settings.
+            {' '}and assistants such as Claude or ChatGPT can query that same library, limited to what you enable in settings.
           </p>
 
           <div className="modes-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--vy-space-6)', marginBottom: 'var(--vy-space-12)' }}>
@@ -499,7 +499,7 @@ export default function VyasaLanding() {
                 })}
               </g>
 
-              {/* Timeline rail — semantic layer under the decorative bars */}
+              {/* Timeline rail: semantic layer under the decorative bars */}
               <line x1="40" y1="132" x2="760" y2="132" stroke={LINE} strokeWidth="1" />
               <polygon points="760,132 778,132 770,126" fill={LINE} />
               <text x="40" y="154" fill={MUTED} fontSize="10" fontFamily="system-ui, sans-serif">earlier</text>
@@ -568,43 +568,36 @@ export default function VyasaLanding() {
               )}
             </svg>
           </div>
-        </div>
-      </section>
 
-      {/* RECALL */}
-      <section className="vy-section">
-        <div className="container">
-          <div className="section-label" style={{ marginBottom: 'var(--vy-space-10)' }}>Recall</div>
-          <h2 className="serif" style={{
-            fontSize: 'clamp(2.25rem, 5vw, 4rem)', fontWeight: 400, lineHeight: 1.05,
-            letterSpacing: '-0.025em', marginBottom: 'var(--vy-space-8)', maxWidth: 'min(100%, 56.25rem)',
-          }}>
-            From buffer to search.
-          </h2>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--vy-grid-gap)', alignItems: 'center' }} className="modes-grid">
-            <div>
-              <p className="sans" style={{ fontSize: '1.0625rem', color: FG, lineHeight: 1.7, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-                After you commit a slice from the sixty-second window, or finish a long hold (the rolling minute is prepended to that recording), the file is still on the clip until it syncs to your phone. In the Vyasa app it becomes text you can search.
-              </p>
-              <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, lineHeight: 1.7, fontWeight: 300 }}>
-                Export, delete, or move it from the app when you want. We do not use your captures to train models.
-              </p>
-            </div>
-
-            <div style={{
-              border: `1px solid ${LINE}`, background: '#0F0E0C', padding: 'var(--vy-space-8) var(--vy-space-7)',
-              fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8125rem', lineHeight: 1.8,
+          <div style={{ marginTop: 'var(--vy-space-20)' }}>
+            <h3 className="serif" style={{
+              fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 400, lineHeight: 1.05,
+              letterSpacing: '-0.025em', marginBottom: 'var(--vy-space-8)', maxWidth: 'min(100%, 56.25rem)',
             }}>
-              <div style={{ color: MUTED, marginBottom: 'var(--vy-space-2)', fontSize: '0.6875rem' }}>// claude, with vyasa connected</div>
-              <div style={{ color: FG, marginBottom: 'var(--vy-space-4)' }}>
-                <span style={{ color: SAFFRON }}>&gt;</span> priya pricing tuesday
-              </div>
-              <div style={{ color: MUTED, fontSize: '0.6875rem', marginBottom: 'var(--vy-space-2)' }}>// found 1 match</div>
-              <div style={{ color: FG, opacity: 0.85, fontSize: '0.75rem', lineHeight: 1.7 }}>
-                tue 4:18pm, koramangala<br />
-                priya: <span style={{ color: SAFFRON, opacity: 0.9 }}>"40k is fine for the pilot,</span><br />
-                <span style={{ color: SAFFRON, opacity: 0.9 }}>but quarterly review."</span>
+              From buffer to search.
+            </h3>
+
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div style={{
+                width: '100%',
+                maxWidth: 'min(100%, 28rem)',
+                border: `1px solid ${LINE}`,
+                background: '#0F0E0C',
+                padding: 'var(--vy-space-8) var(--vy-space-7)',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.8125rem',
+                lineHeight: 1.8,
+              }}>
+                <div style={{ color: MUTED, marginBottom: 'var(--vy-space-2)', fontSize: '0.6875rem' }}>// claude, with vyasa connected</div>
+                <div style={{ color: FG, marginBottom: 'var(--vy-space-4)' }}>
+                  <span style={{ color: SAFFRON }}>&gt;</span> priya pricing tuesday
+                </div>
+                <div style={{ color: MUTED, fontSize: '0.6875rem', marginBottom: 'var(--vy-space-2)' }}>// found 1 match</div>
+                <div style={{ color: FG, opacity: 0.85, fontSize: '0.75rem', lineHeight: 1.7 }}>
+                  tue 4:18pm, koramangala<br />
+                  priya: <span style={{ color: SAFFRON, opacity: 0.9 }}>"40k is fine for the pilot,</span><br />
+                  <span style={{ color: SAFFRON, opacity: 0.9 }}>but quarterly review."</span>
+                </div>
               </div>
             </div>
           </div>
@@ -624,7 +617,7 @@ export default function VyasaLanding() {
 
           <div style={{ maxWidth: 'min(100%, 45rem)' }}>
             <p className="sans" style={{ fontSize: '1.125rem', color: FG, lineHeight: 1.75, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-              The clip is where recording lands first: your buffer and each saved take stay on the device until they sync with your phone. After that, they live in the Vyasa app on your phone—that is where you search, play, export, or delete by default. Optional cloud backup is opt-in; when you turn it on, it is end-to-end encrypted. We do not train on your conversations.
+              The clip is where recording lands first: your buffer and each saved take stay on the device until they sync with your phone. After that, they live in the Vyasa app on your phone. That is where you search, play, export, or delete by default. Optional cloud backup is opt-in; when you turn it on, it is end-to-end encrypted. We do not train on your conversations.
             </p>
             <p className="sans" style={{ fontSize: '1.125rem', color: FG, lineHeight: 1.75, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
               We are not in the business of bricking hardware or holding your captures hostage. Your memories should not disappear because a vendor changed their mind.
@@ -664,7 +657,7 @@ export default function VyasaLanding() {
               long back (kinda important). I take notes and lose the notes.
             </p>
             <p className="sans" style={{ fontSize: '1.1875rem', color: FG, lineHeight: 1.7, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-              I've spent years on ranking and relevance. Recall is a ranking problem.
+              I've spent years on ranking and relevance. Finding the right moment is a ranking problem.
               The same math that decides what shows up when you search can decide which moment from your week
               is the one you're trying to find.
             </p>
@@ -693,7 +686,7 @@ export default function VyasaLanding() {
             when yours is ready.
           </p>
           <p className="sans" style={{ fontSize: '0.9375rem', color: FG, lineHeight: 1.5, marginBottom: 'var(--vy-space-10)', maxWidth: 'min(100%, 33.75rem)', fontWeight: 400 }}>
-            Missed the form up top? Same waitlist—add your email here.
+            Missed the form up top? Same waitlist. Add your email here.
           </p>
 
           {!submitted ? (

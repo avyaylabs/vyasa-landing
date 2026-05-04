@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 
 const siteUrl = "https://vyasa.avyaylabs.com";
 const description =
-  "A wearable clip: one press saves the rolling minute, or hold to prepend that minute and keep recording until you stop. Captures stay on the clip until they sync to your phone—then search in the Vyasa app.";
+  "A wearable clip: one press saves the rolling minute, or hold to prepend that minute and keep recording until you stop. Captures stay on the clip until they sync to your phone. Search in the Vyasa app; connect MCP for assistants when you enable it.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
