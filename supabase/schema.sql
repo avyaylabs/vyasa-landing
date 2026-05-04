@@ -8,7 +8,7 @@ create table if not exists public.waitlist_signups (
   constraint waitlist_signups_email_key unique (email)
 );
 
-comment on table public.waitlist_signups is 'Vyāsa landing waitlist signups';
+comment on table public.waitlist_signups is 'Vyasa landing waitlist signups';
 
 -- Optional: tighten privileges (service role bypasses RLS; anon has no access by default)
 alter table public.waitlist_signups enable row level security;

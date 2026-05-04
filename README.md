@@ -1,6 +1,6 @@
-# Vyāsa landing
+# Vyasa landing
 
-Next.js app for the Vyāsa marketing page and waitlist.
+Next.js app for the Vyasa marketing page and waitlist.
 
 ## Where emails are stored
 
@@ -45,7 +45,7 @@ This folder is already a git repository (`create-next-app` ran `git init`). From
 cd /Users/rahuld/Documents/avyaylabs/projects/vyasa-landing
 git add -A
 git status
-git commit -m "Vyāsa landing with Supabase waitlist API"
+git commit -m "Vyasa landing with Supabase waitlist API"
 ```
 
 Then either:
