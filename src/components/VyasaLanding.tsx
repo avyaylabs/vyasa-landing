@@ -538,8 +538,8 @@ export default function VyasaLanding() {
                   <text x="768" y="90" textAnchor="middle" fill={SAFFRON} fontSize="11" fontFamily="system-ui, sans-serif" fontWeight="600">
                     now
                   </text>
-                  <text x="400" y="184" textAnchor="middle" fill={MUTED} fontSize="11" fontFamily="system-ui, sans-serif">
-                    Bars = vibe · rail = what press-once saves (schematic)
+                  <text x="400" y="184" textAnchor="middle" fill={MUTED} fontSize="10" fontFamily="system-ui, sans-serif">
+                    One press saves about the last minute rolling up to now.
                   </text>
                 </g>
               ) : (
@@ -575,8 +575,8 @@ export default function VyasaLanding() {
                   <text x="688" y="90" textAnchor="middle" fill={MUTED} fontSize="10" fontFamily="system-ui, sans-serif">
                     stop
                   </text>
-                  <text x="400" y="184" textAnchor="middle" fill={MUTED} fontSize="11" fontFamily="system-ui, sans-serif">
-                    Bars follow prepend + live regions · rail matches (schematic)
+                  <text x="400" y="184" textAnchor="middle" fill={MUTED} fontSize="10" fontFamily="system-ui, sans-serif">
+                    Hold prepends that minute, then records until you stop.
                   </text>
                 </g>
               )}
