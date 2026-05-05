@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { fontInter, fontVariableClasses } from "./fonts";
 import {
   IS_PREVIEW,
   ORGANIZATION,
@@ -79,8 +80,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body style={{ margin: 0 }}>
+    <html lang="en" className={fontVariableClasses}>
+      <body className={fontInter.className} style={{ margin: 0 }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

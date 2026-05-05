@@ -68,12 +68,9 @@ export default function VyasaLanding() {
         background: BG,
         color: FG,
         minHeight: '100vh',
-        fontFamily: "'Inter', -apple-system, sans-serif",
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap');
-
         html {
           scroll-behavior: smooth;
           background-color: ${BG};
@@ -113,9 +110,9 @@ export default function VyasaLanding() {
           padding-block-end: var(--vy-footer-y-bottom);
         }
 
-        .serif { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .sans { font-family: 'Inter', sans-serif; }
+        .serif { font-family: var(--font-fraunces), Georgia, serif; font-optical-sizing: auto; }
+        .mono { font-family: var(--font-mono), ui-monospace, monospace; }
+        .sans { font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif; }
 
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(0.75rem); }
@@ -215,7 +212,7 @@ export default function VyasaLanding() {
         }
 
         .section-label {
-          font-family: 'JetBrains Mono', monospace;
+          font-family: var(--font-mono), ui-monospace, monospace;
           font-size: 0.6875rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
@@ -594,7 +591,7 @@ export default function VyasaLanding() {
                 border: `1px solid ${LINE}`,
                 background: '#0F0E0C',
                 padding: 'var(--vy-space-8) var(--vy-space-7)',
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "var(--font-mono), ui-monospace, monospace",
                 fontSize: '0.8125rem',
                 lineHeight: 1.8,
               }}>
