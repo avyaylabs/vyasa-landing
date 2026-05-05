@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     title: "Vyasa · Your conversations searchable",
     description: SITE_DESCRIPTION,
   },
+  verification: {
+    google: "x2LV7Dz0H7kmaHi-nE-p64jHxY4TtE645Ymnq1Whsqg",
+  },
 };
 
 const jsonLd = {
