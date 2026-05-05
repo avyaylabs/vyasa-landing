@@ -7,7 +7,7 @@ export const SITE_URL = (
 export const IS_PREVIEW = process.env.VERCEL_ENV === "preview";
 
 export const SITE_DESCRIPTION =
-  "A wearable clip: one press saves the rolling minute, or hold to prepend that minute and keep recording until you stop. Captures stay on the clip until they sync to your phone. Search in the Vyasa app; connect MCP for assistants when you enable it.";
+  "A wearable clip with a rolling audio buffer: one press saves about the last minute, or hold to prepend that minute and keep recording until you stop. Stays on the clip until it syncs to your phone. Search transcripts in the Vyasa app; connect MCP for assistants when you enable it.";
 
 export const ORGANIZATION = {
   name: "Avyay Labs",

@@ -333,7 +333,7 @@ export default function VyasaLanding() {
             fontSize: '1.1875rem', lineHeight: 1.55, color: MUTED,
             maxWidth: 'min(100%, 35rem)', marginBottom: 'var(--vy-space-12)', fontWeight: 300,
           }}>
-            The clip keeps that stretch in temporary memory until you act: press once to save the last ~60 seconds, or hold to start a longer take. The rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold.
+            Press once to save the last ~60 seconds from that buffer, or hold to start a longer take. The rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold.
           </p>
 
           <div className="fade-up delay-4" style={{ maxWidth: 'min(100%, 30rem)' }}>
@@ -409,7 +409,7 @@ export default function VyasaLanding() {
             fontSize: 'clamp(1.375rem, 2.6vw, 1.875rem)', lineHeight: 1.5, fontWeight: 300,
             letterSpacing: '-0.015em', maxWidth: 'min(100%, 56.25rem)', color: MUTED, marginTop: 'var(--vy-space-8)',
           }}>
-            The hallway debrief after you left the Zoom room. The detail someone said once, fast,
+            You can't search what no one recorded. The hallway debrief after you left the Zoom room. The detail someone said once, fast,
             while you were looking at the wrong screen. The line in the contract you only half heard.
             You meant to remember. You didn't.
           </p>
@@ -427,7 +427,7 @@ export default function VyasaLanding() {
             Two modes. One button.
           </h2>
           <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-5)', lineHeight: 1.65, fontWeight: 300 }}>
-            The two cards below are the whole model on one button: press once to save the last ~60 seconds from the rolling buffer; hold to prepend that same window to a new take, then keep recording until you stop with a second hold.
+            The two cards below are the whole model on one button: press once to save the last ~60 seconds from the rolling audio buffer; hold to prepend that same window to a new take, then keep recording until you stop with a second hold.
           </p>
           <p className="sans" style={{ fontSize: '1.0625rem', color: MUTED, maxWidth: 'min(100%, 45rem)', marginBottom: 'var(--vy-space-16)', lineHeight: 1.65, fontWeight: 300 }}>
             Each capture stays on the clip until it syncs to your phone, then lives as searchable text in the Vyasa app. Connect{' '}
@@ -574,7 +574,7 @@ export default function VyasaLanding() {
               fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', fontWeight: 400, lineHeight: 1.05,
               letterSpacing: '-0.025em', marginBottom: 'var(--vy-space-8)', maxWidth: 'min(100%, 56.25rem)',
             }}>
-              From buffer to search.
+              From buffer to searchable text.
             </h3>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -617,7 +617,7 @@ export default function VyasaLanding() {
 
           <div style={{ maxWidth: 'min(100%, 45rem)' }}>
             <p className="sans" style={{ fontSize: '1.125rem', color: FG, lineHeight: 1.75, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
-              The clip is where recording lands first: your buffer and each saved take stay on the device until they sync with your phone. After that, they live in the Vyasa app on your phone. That is where you search, play, export, or delete by default. Optional cloud backup is opt-in; when you turn it on, it is end-to-end encrypted. We do not train on your conversations.
+              Recordings stay private on the clip first: your buffer and each saved take remain on the device until they sync with your phone. After that, they live in the Vyasa app on your phone. That is where you search by keyword, play audio back, export, or delete by default. Optional cloud backup is opt-in; when you turn it on, it is end-to-end encrypted. We do not train on your conversations.
             </p>
             <p className="sans" style={{ fontSize: '1.125rem', color: FG, lineHeight: 1.75, marginBottom: 'var(--vy-space-6)', fontWeight: 300 }}>
               We are not in the business of bricking hardware or holding your captures hostage. Your memories should not disappear because a vendor changed their mind.
@@ -727,7 +727,7 @@ export default function VyasaLanding() {
             <div>
               <div className="serif" style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: 'var(--vy-space-3)', letterSpacing: '-0.01em' }}>Vyasa</div>
               <p className="sans" style={{ fontSize: '0.8125rem', color: MUTED, lineHeight: 1.6, maxWidth: 'min(100%, 20rem)' }}>
-                Your conversations searchable. Built by Avyay Labs in Bangalore.
+                Voice becomes text you can search. Built by Avyay Labs in Bangalore.
               </p>
             </div>
             <div>
