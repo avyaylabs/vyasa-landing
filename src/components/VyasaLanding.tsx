@@ -99,6 +99,8 @@ export default function VyasaLanding() {
         .vy-section {
           border-top: 1px solid ${LINE};
           padding-block: var(--vy-section-y);
+          content-visibility: auto;
+          contain-intrinsic-size: 1px 36rem;
         }
         .vy-section--waitlist {
           padding-block-start: var(--vy-waitlist-pt);
@@ -108,6 +110,8 @@ export default function VyasaLanding() {
           border-top: 1px solid ${LINE};
           padding-block-start: var(--vy-footer-y-top);
           padding-block-end: var(--vy-footer-y-bottom);
+          content-visibility: auto;
+          contain-intrinsic-size: 1px 28rem;
         }
 
         .serif { font-family: var(--font-fraunces), Georgia, serif; font-optical-sizing: auto; }
@@ -136,8 +140,9 @@ export default function VyasaLanding() {
         .delay-5 { animation-delay: 0.75s; }
         .delay-6 { animation-delay: 0.9s; }
 
+        /* Explicit transitions avoid "all" repaint; padding still reflows but limits properties. */
         .vyasa-nav {
-          transition: padding 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-bottom-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: padding 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-bottom-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-link { color: ${MUTED}; transition: color 0.2s ease; text-decoration: none; }
@@ -168,7 +173,7 @@ export default function VyasaLanding() {
           letter-spacing: 0.02em;
           cursor: pointer;
           font-family: inherit;
-          transition: all 0.2s ease;
+          transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
           white-space: nowrap;
         }
         .cta-btn:hover { background: #F2B566; transform: translateY(-0.0625rem); }
@@ -180,7 +185,7 @@ export default function VyasaLanding() {
           border: 1px solid ${LINE};
           padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.25rem, 3vw, 2rem);
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: border-color 0.3s ease, background-color 0.3s ease;
           background: transparent;
           text-align: left;
           width: 100%;
@@ -199,6 +204,7 @@ export default function VyasaLanding() {
           background: rgba(232, 160, 74, 0.015);
           position: relative;
           overflow: hidden;
+          contain: paint;
         }
 
         .grain {
@@ -238,8 +244,8 @@ export default function VyasaLanding() {
             padding-top: calc(var(--vy-hero-nav-clearance-mobile) + env(safe-area-inset-top, 0px));
           }
           .vyasa-nav {
-            background: rgba(10, 9, 8, 0.94) !important;
-            backdrop-filter: blur(0.875rem) !important;
+            background: rgba(10, 9, 8, 0.96) !important;
+            backdrop-filter: blur(6px) !important;
             border-bottom-color: ${LINE} !important;
           }
         }
@@ -288,8 +294,8 @@ export default function VyasaLanding() {
         paddingRight: 0,
         paddingBottom: scrolled ? '1rem' : '1.75rem',
         paddingTop: `calc(${scrolled ? '1rem' : '1.75rem'} + env(safe-area-inset-top, 0px))`,
-        background: scrolled ? 'rgba(10, 9, 8, 0.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(0.75rem)' : 'none',
+        background: scrolled ? 'rgba(10, 9, 8, 0.96)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(6px)' : 'none',
         borderBottom: scrolled ? `1px solid ${LINE}` : '1px solid transparent',
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -302,6 +308,7 @@ export default function VyasaLanding() {
         </div>
       </nav>
 
+      <main id="main">
       {/* HERO: padding-top on .hero-section clears fixed nav; content is top-aligned */}
       <section className="hero-section">
         <div className="container" style={{ paddingTop: 'var(--vy-space-10)', paddingBottom: 'var(--vy-space-20)', width: '100%', position: 'relative', zIndex: 2 }}>
@@ -726,6 +733,8 @@ export default function VyasaLanding() {
           )}
         </div>
       </section>
+
+      </main>
 
       {/* FOOTER */}
       <footer className="vy-footer">
