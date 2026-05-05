@@ -738,8 +738,7 @@ export default function VyasaLanding() {
             </div>
             <div>
               <div className="mono" style={{ fontSize: '0.6875rem', color: MUTED, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 'var(--vy-space-4)' }}>Elsewhere</div>
-              <a href="https://x.com/avyaylabs" target="_blank" rel="noopener noreferrer" className="nav-link sans" style={{ fontSize: '0.875rem', display: 'block', marginBottom: 'var(--vy-space-2)' }}>X</a>
-              <a href="https://www.linkedin.com/in/rdg07/" target="_blank" rel="noopener noreferrer" className="nav-link sans" style={{ fontSize: '0.875rem', display: 'block' }}>LinkedIn</a>
+              <a href="https://x.com/avyaylabs" target="_blank" rel="noopener noreferrer" className="nav-link sans" style={{ fontSize: '0.875rem', display: 'block' }}>X</a>
             </div>
           </div>
 

@@ -1,33 +1,73 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
+import {
+  IS_PREVIEW,
+  ORGANIZATION,
+  SITE_DESCRIPTION,
+  SITE_URL,
+} from "@/lib/site-config";
 
-export const viewport: Viewport = {
+export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
 };
 
-const siteUrl = "https://vyasa.avyaylabs.com";
-const description =
-  "A wearable clip: one press saves the rolling minute, or hold to prepend that minute and keep recording until you stop. Captures stay on the clip until they sync to your phone. Search in the Vyasa app; connect MCP for assistants when you enable it.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: "Vyasa · Your conversations searchable",
-  description,
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+  ...(IS_PREVIEW
+    ? {
+        robots: {
+          index: false,
+          follow: false,
+          googleBot: { index: false, follow: false },
+        },
+      }
+    : {
+        robots: {
+          index: true,
+          follow: true,
+        },
+      }),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Vyasa",
     title: "Vyasa · Your conversations searchable",
-    description,
+    description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     title: "Vyasa · Your conversations searchable",
-    description,
+    description: SITE_DESCRIPTION,
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${ORGANIZATION.url}/#organization`,
+      name: ORGANIZATION.name,
+      url: ORGANIZATION.url,
+      sameAs: [...ORGANIZATION.sameAs],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Vyasa",
+      url: SITE_URL,
+      description: SITE_DESCRIPTION,
+      publisher: { "@id": `${ORGANIZATION.url}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -37,7 +77,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ margin: 0 }}>{children}</body>
+      <body style={{ margin: 0 }}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
