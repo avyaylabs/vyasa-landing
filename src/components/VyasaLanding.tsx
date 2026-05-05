@@ -137,6 +137,7 @@ export default function VyasaLanding() {
         .delay-3 { animation-delay: 0.4s; }
         .delay-4 { animation-delay: 0.6s; }
         .delay-5 { animation-delay: 0.75s; }
+        .delay-6 { animation-delay: 0.9s; }
 
         .vyasa-nav {
           transition: padding 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-bottom-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -331,12 +332,21 @@ export default function VyasaLanding() {
 
           <p className="sans fade-up delay-3" style={{
             fontSize: '1.1875rem', lineHeight: 1.55, color: MUTED,
-            maxWidth: 'min(100%, 35rem)', marginBottom: 'var(--vy-space-12)', fontWeight: 300,
+            maxWidth: 'min(100%, 35rem)', marginBottom: 'var(--vy-space-6)', fontWeight: 300,
           }}>
-            Press once to save the last ~60 seconds from that buffer, or hold to start a longer take. The rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold.
+            The clip always keeps just the last minute in temporary memory until you act: press once to save the last ~60 seconds, or hold to start a longer take. The rolling minute is prepended to that recording, then audio keeps going until you stop with a second hold.
           </p>
 
-          <div className="fade-up delay-4" style={{ maxWidth: 'min(100%, 30rem)' }}>
+          <p className="sans fade-up delay-4" style={{
+            fontSize: '1.1875rem', lineHeight: 1.55, color: MUTED,
+            maxWidth: 'min(100%, 35rem)', marginBottom: 'var(--vy-space-12)', fontWeight: 300,
+          }}>
+            Once it syncs to your phone, it turns into text you can search in the Vyasa app, or you can connect assistants over{' '}
+            <span className="mono" style={{ fontSize: '0.95em', color: SAFFRON }}>MCP</span>
+            {' '}to use the same library when you enable it in settings.
+          </p>
+
+          <div className="fade-up delay-5" style={{ maxWidth: 'min(100%, 30rem)' }}>
             {!submitted ? (
               <div>
                 <p className="sans" style={{ fontSize: '0.9375rem', color: FG, lineHeight: 1.5, marginBottom: 'var(--vy-space-4)', fontWeight: 400 }}>
@@ -375,7 +385,7 @@ export default function VyasaLanding() {
 
         </div>
 
-        <div className="fade-up delay-5" style={{
+        <div className="fade-up delay-6" style={{
           position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)',
           width: '40%', height: '60%', opacity: 0.5, pointerEvents: 'none',
           display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 'var(--vy-container-inline)',
